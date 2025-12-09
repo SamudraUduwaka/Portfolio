@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -16,6 +17,7 @@ const navItems = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,8 +29,8 @@ const Navbar = () => {
 
   const handleNavClick = (href: string) => {
     if (href.startsWith('/')) {
-      // Navigate to different page
-      window.location.href = href;
+      // Navigate to different page using React Router
+      navigate(href);
     } else {
       // Scroll to section
       const element = document.querySelector(href);
