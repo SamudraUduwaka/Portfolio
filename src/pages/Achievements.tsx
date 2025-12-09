@@ -182,7 +182,7 @@ const Achievements = () => {
             >
               <div className="aspect-video bg-muted overflow-hidden">
                 <img
-                  src="/src/public/Certifications/WSO2 Certified Identity Server Practitioner - V7.0.png"
+                  src="/Portfolio/Certifications/WSO2 Certified Identity Server Practitioner - V7.0.png"
                   alt="WSO2 Certified Identity Server Practitioner"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                 />
@@ -208,7 +208,7 @@ const Achievements = () => {
             >
               <div className="aspect-video bg-muted overflow-hidden">
                 <img
-                  src="/src/public/Certifications/NVIDIA_DL.png"
+                  src="/Portfolio/Certifications/NVIDIA_DL.png"
                   alt="NVIDIA Deep Learning"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                 />
@@ -234,7 +234,7 @@ const Achievements = () => {
             >
               <div className="aspect-video bg-muted overflow-hidden">
                 <img
-                  src="/src/public/Certifications/Machine learning specialization.png"
+                  src="/Portfolio/Certifications/Machine learning specialization.png"
                   alt="Machine Learning Specialization"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                 />
@@ -260,7 +260,7 @@ const Achievements = () => {
             >
               <div className="aspect-video bg-muted overflow-hidden">
                 <img
-                  src="/src/public/Certifications/OpenCV Bootcamp.png"
+                  src="/Portfolio/Certifications/OpenCV Bootcamp.png"
                   alt="OpenCV Bootcamp"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                 />
@@ -286,7 +286,7 @@ const Achievements = () => {
             >
               <div className="aspect-video bg-muted overflow-hidden">
                 <img
-                  src="/src/public/Certifications/TensorFlow Keras Bootcamp.png"
+                  src="/Portfolio/Certifications/TensorFlow Keras Bootcamp.png"
                   alt="TensorFlow Keras Bootcamp"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                 />
@@ -312,7 +312,7 @@ const Achievements = () => {
             >
               <div className="aspect-video bg-muted overflow-hidden">
                 <img
-                  src="/src/public/Certifications/Docker Training Course for the Absolute Beginner.png"
+                  src="/Portfolio/Certifications/Docker Training Course for the Absolute Beginner.png"
                   alt="Docker Training Course"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                 />
@@ -338,7 +338,7 @@ const Achievements = () => {
             >
               <div className="aspect-video bg-muted overflow-hidden">
                 <img
-                  src="/src/public/Certifications/Introduction to Graph Theory.png"
+                  src="/Portfolio/Certifications/Introduction to Graph Theory.png"
                   alt="Introduction to Graph Theory"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                 />
@@ -364,7 +364,7 @@ const Achievements = () => {
             >
               <div className="aspect-video bg-muted overflow-hidden">
                 <img
-                  src="/src/public/Certifications/Foundations of Project Management.png"
+                  src="/Portfolio/Certifications/Foundations of Project Management.png"
                   alt="Foundations of Project Management"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                 />
