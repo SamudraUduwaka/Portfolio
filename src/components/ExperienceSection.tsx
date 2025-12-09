@@ -8,7 +8,7 @@ const experiences = [
     period: "Sept 2025 - Dec 2025",
     description: "Conducting Raspberry-pi and Omnet++ simulation workshops for batch 24",
     // skills: ["Raspberry-pi", "Omnet++", "Workshop Instruction"],
-    logo: "./logos/uom-logo.jpg",
+    logo: "/Portfolio/logos/uom-logo.jpg",
   },
   {
     title: "Intern Software Engineer (Full-time)",
@@ -17,7 +17,7 @@ const experiences = [
     period: "Dec 2024 - May 2025",
     description: "Identity and Access Management - sub-team: Auth and Reg",
     // skills: ["React", "Ballerina", "Java", "MySQL", "h2 db"],
-    logo: "./logos/wso2-logo.png",
+    logo: "/Portfolio/logos/wso2-logo.png",
   },
   {
     title: "Trainee Software Engineer (Part-time)",
@@ -26,7 +26,7 @@ const experiences = [
     period: "Jun 2024 - Dec 2024",
     description: "Mobile application development, Web application development",
     // skills: ["Flutter", "React JS"],
-    logo: "./logos/crytec-logo.png",
+    logo: "/Portfolio/logos/crytec-logo.png",
   },
   {
     title: "Co-founder and Developer",
@@ -35,7 +35,7 @@ const experiences = [
     period: "Feb 2022 - March 2024",
     description: "Web application development, Software Application Development",
     // skills: ["HTML", "CSS", "JS", "PHP", "Java", "MySQL"],
-    logo: "./logos/apexrow-solutions-logo.png",
+    logo: "/Portfolio/logos/apexrow-solutions-logo.png",
   },
 ];
 

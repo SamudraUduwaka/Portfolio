@@ -90,7 +90,7 @@ const Navbar = () => {
                   {item.label}
                 </button>
               ))}
-              <a href="./CV/Samudra_Uduwaka_CV.pdf" download="Samudra_Uduwaka_CV.pdf">
+              <a href="/Portfolio/CV/Samudra_Uduwaka_CV.pdf" download="Samudra_Uduwaka_CV.pdf">
                 <Button variant="hero" size="sm" className="w-fit">
                   Resume
                 </Button>
