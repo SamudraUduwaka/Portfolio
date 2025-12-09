@@ -7,6 +7,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import FypSection from "@/components/FypSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import coverImg from "@/images/samudra_coverpic.png";
 
 const Index = () => {
   return (
@@ -17,7 +18,7 @@ const Index = () => {
         <div className="relative z-0">
           <div className="fixed inset-0 z-0 h-screen">
             <img 
-              src="/src/images/samudra_coverpic.png"
+              src={coverImg}
               alt="Cover" 
               className="w-full h-screen object-cover opacity-30"
             />
