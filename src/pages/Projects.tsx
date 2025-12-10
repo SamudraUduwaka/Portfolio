@@ -11,19 +11,19 @@ const allProjects = [
     tech: ["Kotlin", "React.js", "Node Package Manager", "Python", "Swift", "Meshtastic Framework"],
     github: "https://github.com/Meshtastic-DM",
     category: "Research & Development",
-    year: "2024 - Present",
+    year: "2025 - Present",
     featured: true,
   },
   {
     title: "Custom Page Editor for Asgardeo and IS - Internship",
     description: "Main internship project developing a custom page editor for the product Console for page customizations in end user facing portals. Implemented front-end design, back-end Content Management, Runtime, and Portal Customization API using OpenAPI spec designed for REST API.",
     tech: ["React.js", "MUI", "Oxygen UI", "CodeMirror", "Java", "Maven", "Swagger"],
-    github: "https://github.com/SamudraUduwaka/Page-Editor-Backend-Jinjava",
-    links: {
-      docs: "https://is.docs.wso2.com/"
-    },
+    github: "https://is.docs.wso2.com/en/next/guides/branding/customize-layouts-with-editor/",
+    // links: {
+    //   docs: "https://is.docs.wso2.com/"
+    // },
     category: "Internship Project",
-    year: "2024",
+    year: "2025",
     featured: true,
   },
   {
@@ -32,7 +32,7 @@ const allProjects = [
     tech: ["Ballerina", "VScode", "Gradle", "Rancher for Docker", "Github"],
     github: "https://github.com/SamudraUduwaka/module-ballerinax-hubspot.marketing.campaigns",
     category: "Internship Project",
-    year: "2024",
+    year: "2025",
     featured: true,
   },
   {
@@ -45,20 +45,11 @@ const allProjects = [
     featured: true,
   },
   {
-    title: "Flower Exchange - LSEG",
-    description: "A basic trading system for flowers, allowing traders to submit buy/sell orders. The Exchange Application processes these orders against an order book and generates execution reports, handling full, partial fills, and unfilled orders. Implements efficient order matching algorithms with FIFO priority.",
-    tech: ["C++", "Data Structures", "Algorithms", "Order Matching"],
-    github: "https://github.com/SamudraUduwaka/Flower-Exchange-LSEG",
-    category: "Algorithms & Systems",
-    year: "2024",
-    featured: true,
-  },
-  {
     title: "Lead Acid Battery Charger",
     description: "Semester course project involving the design and development of a lead acid battery charger system. Implemented circuit design, testing, and optimization for efficient charging. Includes safety features and voltage regulation mechanisms.",
-    tech: ["Circuit Design", "Electronics", "Embedded Systems", "Testing"],
+    tech: ["Analog Circuit Design", "SOLIDWORKS", "Altium Designer", "Testing"],
     github: null,
-    category: "Hardware Project",
+    category: "Analog Project",
     year: "2023",
     images: [batteryChargerImg, batteryChargerGroupImg],
     featured: true,
@@ -66,7 +57,7 @@ const allProjects = [
   {
     title: "3D Scanner",
     description: "3D Scanner machine developed as a Level 2 University project. Complete hardware-software integration for 3D object scanning and reconstruction. Uses stepper motors, sensors, and processing algorithms to create 3D models of physical objects.",
-    tech: ["C++", "Embedded Systems", "3D Reconstruction", "Arduino"],
+    tech: ["C++", "SOLIDWORKS", "Embedded Systems", "3D Reconstruction", "Arduino"],
     github: "https://github.com/SamudraUduwaka/3D-Scanner",
     category: "Embedded Systems",
     year: "2024",
@@ -133,7 +124,7 @@ const allProjects = [
     github: "https://github.com/SamudraUduwaka/Flower-Exchange-LSEG",
     category: "Algorithms & Systems",
     year: "2024",
-    featured: false,
+    featured: true,
   },
   {
     title: "Rajasi - Restaurant Web Application",

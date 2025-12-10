@@ -1,8 +1,8 @@
 const skills = {
-  "Languages": ["Python", "TypeScript", "Java", "C++", "JavaScript"],
+  "Languages": ["Java", "Python", "TypeScript", "C++", "PHP"],
   "Frameworks": ["React", "Node.js", "Flutter", "FastAPI", "Spring"],
   "ML/AI": ["TensorFlow", "OpenCV", "Pattern Recognition", "Neural Networks", "Computer Vision"],
-  "Tools": ["Git", "Docker", "Linux", "VS Code", "Jupyter"],
+  "Tools": ["Git", "Docker", "Android Studio", "VS Code", "Jupyter"],
 };
 
 const SkillsSection = () => {
@@ -42,7 +42,7 @@ const SkillsSection = () => {
         </div>
         
         {/* Progress indicators */}
-        <div className="mt-16 max-w-3xl mx-auto">
+        {/* <div className="mt-16 max-w-3xl mx-auto">
           <div className="grid gap-6">
             {[
               { name: "Software Development", level: 90 },
@@ -64,7 +64,7 @@ const SkillsSection = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

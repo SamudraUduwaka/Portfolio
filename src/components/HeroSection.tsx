@@ -5,7 +5,7 @@ import profileImg from "@/images/samudra_main.jpg";
 import coverImg from "@/images/samudra_coverpic.png";
 
 const roles = [
-  "Software Engineer",
+  "Software Developer",
   "ML & AI Enthusiast",
   "Full-Stack Developer",
   "Computer Vision Explorer",
