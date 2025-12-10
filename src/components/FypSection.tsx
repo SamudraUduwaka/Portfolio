@@ -35,7 +35,7 @@ const FypSection = () => {
             <p className="text-muted-foreground mb-6 leading-relaxed">
               An ongoing Final Year Project focused on evaluating and adapting the Meshtastic Network platform 
               for disaster management scenarios. Meshtastic is an open-source, off-grid mesh communication system 
-              that enables long-range, low-power communication without traditional infrastructure—making it ideal 
+              that enables long-range, low-power communication without traditional infrastructure, making it ideal 
               for disaster response situations where conventional networks fail.
             </p>
 
@@ -120,7 +120,7 @@ const FypSection = () => {
               </div>
               <p className="text-sm text-muted-foreground">
                 Implementing voice communication over Meshtastic using Android and iOS apps. 
-                Working on efficient audio compression and transmission protocols suitable for 
+                Working on efficient audio transmission over Meshtastic protocol, ensuring suitability for 
                 low-bandwidth mesh networks.
               </p>
             </div>

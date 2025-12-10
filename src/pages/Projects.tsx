@@ -11,17 +11,17 @@ const allProjects = [
     tech: ["Kotlin", "React.js", "Node Package Manager", "Python", "Swift", "Meshtastic Framework"],
     github: "https://github.com/Meshtastic-DM",
     category: "Research & Development",
-    year: "2025 - Present",
+    year: "Ongoing",
     featured: true,
   },
   {
     title: "Custom Page Editor for Asgardeo and IS - Internship",
     description: "Main internship project developing a custom page editor for the product Console for page customizations in end user facing portals. Implemented front-end design, back-end Content Management, Runtime, and Portal Customization API using OpenAPI spec designed for REST API.",
     tech: ["React.js", "MUI", "Oxygen UI", "CodeMirror", "Java", "Maven", "Swagger"],
-    github: "https://is.docs.wso2.com/en/next/guides/branding/customize-layouts-with-editor/",
-    // links: {
-    //   docs: "https://is.docs.wso2.com/"
-    // },
+    // github: "https://is.docs.wso2.com/en/next/guides/branding/customize-layouts-with-editor/",
+    links: {
+      docs: "https://is.docs.wso2.com/en/next/guides/branding/customize-layouts-with-editor/"
+    },
     category: "Internship Project",
     year: "2025",
     featured: true,
@@ -38,7 +38,7 @@ const allProjects = [
   {
     title: "Transformer Maintenance Record Keeper",
     description: "Full-stack system to record transformer inspections, detect anomalies, and generate maintenance reports. Built with modern TypeScript stack for CEB utility management. Features real-time monitoring, automated alerts, and comprehensive reporting capabilities.",
-    tech: ["TypeScript", "React", "Node.js", "PostgreSQL", "Express"],
+    tech: ["Java", "React TypeScript", "Python", "Node.js", "MySQL", "Image Processing and ML"],
     github: "https://github.com/SamudraUduwaka/Transformer-maintenance-record-keeper-team-backslash",
     category: "Full-Stack Development",
     year: "2024",
