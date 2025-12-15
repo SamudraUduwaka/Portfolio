@@ -325,14 +325,26 @@ const Projects = () => {
               {otherProjects.map((project, index) => (
                 <div
                   key={index}
-                  className="bg-card border border-border rounded-lg p-6 card-hover group"
+                  className="bg-card border border-border rounded-lg overflow-hidden card-hover group"
                 >
-                  <div className="flex justify-between items-start mb-4">
-                    <Folder className="h-10 w-10 text-primary" />
-                    <span className="text-xs font-mono text-muted-foreground">{project.year}</span>
-                  </div>
+                  {/* Project Image */}
+                  {project.image && (
+                    <div className="w-full h-48 overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
                   
-                  <span className="text-xs font-mono text-primary block mb-2">{project.category}</span>
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <Folder className="h-10 w-10 text-primary" />
+                      <span className="text-xs font-mono text-muted-foreground">{project.year}</span>
+                    </div>
+                    
+                    <span className="text-xs font-mono text-primary block mb-2">{project.category}</span>
                   <h5 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                     {project.title}
                   </h5>
@@ -359,6 +371,7 @@ const Projects = () => {
                       <ExternalLink className="h-3 w-3" />
                     </a>
                   )}
+                  </div>
                 </div>
               ))}
             </div>
