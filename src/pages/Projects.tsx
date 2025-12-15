@@ -232,29 +232,65 @@ const practiceLabs = [
 // ProjectCard component for displaying individual projects
 const ProjectCard = ({ project }: { project: any }) => {
   const displayImages = project.images || (project.image ? [project.image] : null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const nextImage = () => {
+    if (displayImages) {
+      setCurrentImageIndex((prev) => (prev + 1) % displayImages.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (displayImages) {
+      setCurrentImageIndex((prev) => (prev - 1 + displayImages.length) % displayImages.length);
+    }
+  };
 
   return (
     <div className="bg-card border border-border rounded-lg overflow-hidden card-hover group">
       {/* Project Images */}
       {displayImages && (
-        <div className="w-full overflow-hidden">
-          {displayImages.length === 1 ? (
-            <img
-              src={displayImages[0]}
-              alt={project.title}
-              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-          ) : (
-            <div className="grid grid-cols-2 gap-2 p-4">
-              {displayImages.map((img: string, idx: number) => (
-                <img
-                  key={idx}
-                  src={img}
-                  alt={`${project.title} ${idx + 1}`}
-                  className="w-full h-32 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
-                />
-              ))}
-            </div>
+        <div className="w-full overflow-hidden relative">
+          <img
+            src={displayImages[currentImageIndex]}
+            alt={`${project.title} ${currentImageIndex + 1}`}
+            className="w-full h-64 object-cover"
+          />
+          
+          {/* Carousel Navigation */}
+          {displayImages.length > 1 && (
+            <>
+              <button
+                onClick={prevImage}
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background p-2 rounded-full transition-all opacity-0 group-hover:opacity-100"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={nextImage}
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background p-2 rounded-full transition-all opacity-0 group-hover:opacity-100"
+                aria-label="Next image"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+              
+              {/* Image Indicators */}
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                {displayImages.map((_: any, idx: number) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentImageIndex(idx)}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      idx === currentImageIndex 
+                        ? 'bg-primary w-6' 
+                        : 'bg-background/60 hover:bg-background/80'
+                    }`}
+                    aria-label={`Go to image ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </>
           )}
         </div>
       )}
@@ -306,8 +342,25 @@ const ProjectCard = ({ project }: { project: any }) => {
 
 const Projects = () => {
   const navigate = useNavigate();
-  const featuredProjects = allProjects.filter(p => p.featured);
-  const otherProjects = allProjects.filter(p => !p.featured);
+  const featuredProjects = allProjects.filter((p) => p.featured);
+  const otherProjects = allProjects.filter((p) => !p.featured);
+  
+  // Featured project carousel state
+  const [featuredImageIndexes, setFeaturedImageIndexes] = useState<{[key: number]: number}>({});
+
+  const nextFeaturedImage = (projectIndex: number, imagesLength: number) => {
+    setFeaturedImageIndexes(prev => ({
+      ...prev,
+      [projectIndex]: ((prev[projectIndex] || 0) + 1) % imagesLength
+    }));
+  };
+
+  const prevFeaturedImage = (projectIndex: number, imagesLength: number) => {
+    setFeaturedImageIndexes(prev => ({
+      ...prev,
+      [projectIndex]: ((prev[projectIndex] || 0) - 1 + imagesLength) % imagesLength
+    }));
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -359,15 +412,48 @@ const Projects = () => {
                   {/* Image/Visual Section */}
                   <div className="md:col-span-1">
                     {project.images ? (
-                      <div className="grid grid-cols-2 gap-2">
-                        {project.images.map((img, idx) => (
-                          <img
-                            key={idx}
-                            src={img}
-                            alt={`${project.title} ${idx + 1}`}
-                            className="w-full h-32 object-cover rounded-lg"
-                          />
-                        ))}
+                      <div className="relative aspect-video rounded-lg overflow-hidden group/img">
+                        <img
+                          src={project.images[featuredImageIndexes[index] || 0]}
+                          alt={`${project.title} ${(featuredImageIndexes[index] || 0) + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                        
+                        {/* Carousel Navigation */}
+                        {project.images.length > 1 && (
+                          <>
+                            <button
+                              onClick={() => prevFeaturedImage(index, project.images.length)}
+                              className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background p-2 rounded-full transition-all opacity-0 group-hover/img:opacity-100"
+                              aria-label="Previous image"
+                            >
+                              <ChevronLeft className="h-5 w-5" />
+                            </button>
+                            <button
+                              onClick={() => nextFeaturedImage(index, project.images.length)}
+                              className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background p-2 rounded-full transition-all opacity-0 group-hover/img:opacity-100"
+                              aria-label="Next image"
+                            >
+                              <ChevronRight className="h-5 w-5" />
+                            </button>
+                            
+                            {/* Image Indicators */}
+                            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                              {project.images.map((_: any, idx: number) => (
+                                <button
+                                  key={idx}
+                                  onClick={() => setFeaturedImageIndexes(prev => ({...prev, [index]: idx}))}
+                                  className={`w-2 h-2 rounded-full transition-all ${
+                                    idx === (featuredImageIndexes[index] || 0)
+                                      ? 'bg-primary w-6' 
+                                      : 'bg-background/60 hover:bg-background/80'
+                                  }`}
+                                  aria-label={`Go to image ${idx + 1}`}
+                                />
+                              ))}
+                            </div>
+                          </>
+                        )}
                       </div>
                     ) : project.image ? (
                       <img
