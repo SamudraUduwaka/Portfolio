@@ -74,7 +74,7 @@ const allProjects = [
     category: "Analog Project",
     year: "2023",
     images: [batteryChargerGroupImg, batteryChargerImg],
-    featured: true,
+    featured: false,
   },
   {
     title: "3D Scanner",
@@ -83,7 +83,7 @@ const allProjects = [
     github: "https://github.com/SamudraUduwaka/3D-Scanner",
     category: "Embedded Systems",
     year: "2024",
-    featured: true,
+    featured: false,
   },
   {
     title: "Automatic MCQ Grader",
