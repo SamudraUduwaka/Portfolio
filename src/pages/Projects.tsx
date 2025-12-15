@@ -1,9 +1,11 @@
-import { ArrowLeft, Github, ExternalLink, Folder, Calendar } from "lucide-react";
+import { ArrowLeft, Github, ExternalLink, Folder, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import batteryChargerImg from "@/images/Lead-acid-battery-charger.jpeg";
 import batteryChargerGroupImg from "@/images/Lead-acid-battery-charger-group.jpeg";
-import eshopImg from "@/images/eshop.jpeg";
+import eshop1Img from "@/images/eshop1.jpeg";
+import eshop2Img from "@/images/eshop2.jpeg";
 import mediboxImg from "@/images/medibox.jpeg";
 import rajasiImg from "@/images/rajasi.jpeg";
 import successImg from "@/images/success.jpeg";
@@ -82,7 +84,7 @@ const allProjects = [
     description: "A fully functional e-commerce web application with complete shopping cart functionality, user authentication, product management, and order processing. Includes database management for products, users, and transactions.",
     tech: ["PHP", "MySQL", "JavaScript", "HTML/CSS", "Web Development"],
     github: "https://github.com/SamudraUduwaka/eShop-Ecommerce-Web-Application",
-    image: eshopImg,
+    images: [eshop1Img, eshop2Img],
     category: "Web Development",
     year: "2024",
     featured: false,
@@ -322,29 +324,76 @@ const Projects = () => {
             </h2>
             
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
-              {otherProjects.map((project, index) => (
-                <div
-                  key={index}
-                  className="bg-card border border-border rounded-lg overflow-hidden card-hover group"
-                >
-                  {/* Project Image */}
-                  {project.image && (
-                    <div className="w-full h-48 overflow-hidden">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  )}
-                  
-                  <div className="p-6">
-                    <div className="flex justify-between items-start mb-4">
-                      <Folder className="h-10 w-10 text-primary" />
-                      <span className="text-xs font-mono text-muted-foreground">{project.year}</span>
-                    </div>
-                    
-                    <span className="text-xs font-mono text-primary block mb-2">{project.category}</span>
+              {otherProjects.map((project, index) => {
+                const ProjectCard = () => {
+                  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+                  const hasMultipleImages = project.images && project.images.length > 1;
+                  const displayImages = project.images || (project.image ? [project.image] : null);
+
+                  const nextImage = () => {
+                    if (displayImages) {
+                      setCurrentImageIndex((prev) => (prev + 1) % displayImages.length);
+                    }
+                  };
+
+                  const prevImage = () => {
+                    if (displayImages) {
+                      setCurrentImageIndex((prev) => (prev - 1 + displayImages.length) % displayImages.length);
+                    }
+                  };
+
+                  return (
+                    <div className="bg-card border border-border rounded-lg overflow-hidden card-hover group">
+                      {/* Project Image/Carousel */}
+                      {displayImages && (
+                        <div className="w-full h-48 overflow-hidden relative">
+                          <img
+                            src={displayImages[currentImageIndex]}
+                            alt={`${project.title} ${currentImageIndex + 1}`}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                          
+                          {/* Carousel Controls */}
+                          {hasMultipleImages && (
+                            <>
+                              <button
+                                onClick={prevImage}
+                                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
+                                aria-label="Previous image"
+                              >
+                                <ChevronLeft className="h-5 w-5" />
+                              </button>
+                              <button
+                                onClick={nextImage}
+                                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
+                                aria-label="Next image"
+                              >
+                                <ChevronRight className="h-5 w-5" />
+                              </button>
+                              
+                              {/* Image indicators */}
+                              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+                                {displayImages.map((_, idx) => (
+                                  <div
+                                    key={idx}
+                                    className={`h-1.5 rounded-full transition-all ${
+                                      idx === currentImageIndex ? 'w-6 bg-white' : 'w-1.5 bg-white/50'
+                                    }`}
+                                  />
+                                ))}
+                              </div>
+                            </>
+                          )}
+                        </div>
+                      )}
+                      
+                      <div className="p-6">
+                        <div className="flex justify-between items-start mb-4">
+                          <Folder className="h-10 w-10 text-primary" />
+                          <span className="text-xs font-mono text-muted-foreground">{project.year}</span>
+                        </div>
+                        
+                        <span className="text-xs font-mono text-primary block mb-2">{project.category}</span>
                   <h5 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                     {project.title}
                   </h5>
@@ -371,9 +420,13 @@ const Projects = () => {
                       <ExternalLink className="h-3 w-3" />
                     </a>
                   )}
-                  </div>
-                </div>
-              ))}
+                      </div>
+                    </div>
+                  );
+                };
+
+                return <ProjectCard key={index} />;
+              })}
             </div>
           </div>
         </section>
