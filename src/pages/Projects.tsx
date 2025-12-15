@@ -113,6 +113,16 @@ const allProjects = [
     featured: false,
   },
   {
+    title: "Rajasi - Restaurant Web Application",
+    description: "A fully functional PHP-based restaurant web application with menu management, order processing, and customer interface. Features semantic UI for enhanced user experience.",
+    tech: ["PHP", "HTML", "JS", "CSS", "MySQL", "VScode", "XAMPP", "workbench", "Bootstrap", "Semantic UI"],
+    github: "https://github.com/SamudraUduwaka/Rajasi-Cousines",
+    images: [rajasi1Img, rajasi2Img],
+    category: "Web Development",
+    year: "2024",
+    featured: false,
+  },
+  {
     title: "Todo App - Flutter",
     description: "A guided Flutter project implementing a Todo App with task management features. Includes task creation, editing, deletion, and status tracking with a clean mobile UI.",
     tech: ["Flutter", "Dart", "Mobile Development"],
@@ -138,16 +148,6 @@ const allProjects = [
     category: "Algorithms & Systems",
     year: "2024",
     featured: true,
-  },
-  {
-    title: "Rajasi - Restaurant Web Application",
-    description: "A fully functional PHP-based restaurant web application with menu management, order processing, and customer interface. Features semantic UI for enhanced user experience.",
-    tech: ["PHP", "HTML", "JS", "CSS", "MySQL", "VScode", "XAMPP", "workbench", "Bootstrap", "Semantic UI"],
-    github: "https://github.com/SamudraUduwaka/Rajasi-Cousines",
-    images: [rajasi1Img, rajasi2Img],
-    category: "Web Development",
-    year: "2024",
-    featured: false,
   },
   {
     title: "Adaptive Traffic Control System",
