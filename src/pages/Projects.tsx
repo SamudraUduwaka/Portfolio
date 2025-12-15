@@ -13,6 +13,12 @@ import rajasi2Img from "@/images/rajasi2.jpeg";
 import newTechImg from "@/images/newTech.png";
 import mediboxImg from "@/images/medibox.jpeg";
 import selfdryerImg from "@/images/selfodryer-robot-1.jpg";
+import fypImg from "@/images/FYP.png";
+import intern1Img from "@/images/intern_main1.png";
+import intern2Img from "@/images/intern_main2.png";
+import intern3Img from "@/images/intern_main3.png";
+import dragDropImg from "@/images/drag and drop.png";
+import marketingCampaignsImg from "@/images/marketing campaigns.png";
 
 const allProjects = [
   {
@@ -20,6 +26,7 @@ const allProjects = [
     description: "Final Year Project (Ongoing) focusing on evaluation and adaptation of Meshtastic Network for disaster management. Individual contribution includes implementing voice communication over Meshtastic using Android and iOS apps, developing analytics dashboard for network monitoring, conducting related research, and verifying with simulations.",
     tech: ["Kotlin", "React.js", "Node Package Manager", "Python", "Swift", "Meshtastic Framework"],
     github: "https://github.com/Meshtastic-DM",
+    image: fypImg,
     category: "Research & Development",
     year: "Ongoing",
     featured: true,
@@ -32,6 +39,7 @@ const allProjects = [
     links: {
       docs: "https://is.docs.wso2.com/en/next/guides/branding/customize-layouts-with-editor/"
     },
+    images: [intern1Img, intern2Img, intern3Img],
     category: "Internship Project",
     year: "2025",
     featured: true,
@@ -41,6 +49,7 @@ const allProjects = [
     description: "Developed a Ballerina Connector for Hubspot Marketing Campaigns API Spec as part of internship on-boarding project. Worked with Ballerina language and multiple frameworks.",
     tech: ["Ballerina", "VScode", "Gradle", "Rancher for Docker", "Github"],
     github: "https://github.com/SamudraUduwaka/module-ballerinax-hubspot.marketing.campaigns",
+    image: marketingCampaignsImg,
     category: "Internship Project",
     year: "2025",
     featured: true,
@@ -156,6 +165,7 @@ const allProjects = [
     description: "Basic Layout Composer with Drag and Drop feature in Canvas using React.js and CraftJS. Provides intuitive interface for building layouts with visual components.",
     tech: ["React.js", "CraftJS", "VScode", "React+Vite"],
     github: "https://github.com/SamudraUduwaka/layout-builder-demo-CraftJS",
+    image: dragDropImg,
     category: "Web Development",
     year: "2024",
     featured: false,
