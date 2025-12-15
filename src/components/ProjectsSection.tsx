@@ -5,6 +5,8 @@ import { useState } from "react";
 import intern1Img from "@/images/intern_main1.png";
 import intern2Img from "@/images/intern_main2.png";
 import intern3Img from "@/images/intern_main3.png";
+import transformer2Img from "@/images/transformer_main2.png";
+import transformer3Img from "@/images/transformer_main3.png";
 
 const projects = [
   {
@@ -20,6 +22,7 @@ const projects = [
     description: "Full-stack system to record transformer inspections, detect anomalies, and generate maintenance reports. Built with modern TypeScript stack for CEB utility management.",
     tech: ["Java", "React TypeScript", "Python", "Node.js", "MySQL", "Image Processing and ML"],
     github: "https://github.com/SamudraUduwaka/Transformer-maintenance-record-keeper-team-backslash",
+    images: [transformer2Img, transformer3Img],
     featured: true,
   },
   {

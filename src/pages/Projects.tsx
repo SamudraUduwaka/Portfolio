@@ -19,6 +19,8 @@ import intern2Img from "@/images/intern_main2.png";
 import intern3Img from "@/images/intern_main3.png";
 import dragDropImg from "@/images/drag and drop.png";
 import marketingCampaignsImg from "@/images/marketing campaigns.png";
+import transformer2Img from "@/images/transformer_main2.png";
+import transformer3Img from "@/images/transformer_main3.png";
 
 const allProjects = [
   {
@@ -59,6 +61,7 @@ const allProjects = [
     description: "Full-stack system to record transformer inspections, detect anomalies, and generate maintenance reports. Built with modern TypeScript stack for CEB utility management. Features real-time monitoring, automated alerts, and comprehensive reporting capabilities.",
     tech: ["Java", "React TypeScript", "Python", "Node.js", "MySQL", "Image Processing and ML"],
     github: "https://github.com/SamudraUduwaka/Transformer-maintenance-record-keeper-team-backslash",
+    images: [transformer2Img, transformer3Img],
     category: "Full-Stack Development",
     year: "2024",
     featured: true,
@@ -70,7 +73,7 @@ const allProjects = [
     github: null,
     category: "Analog Project",
     year: "2023",
-    images: [batteryChargerImg, batteryChargerGroupImg],
+    images: [batteryChargerGroupImg, batteryChargerImg],
     featured: true,
   },
   {
