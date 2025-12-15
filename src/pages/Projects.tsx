@@ -194,6 +194,107 @@ const practiceLabs = [
   },
 ];
 
+// ProjectCard component for displaying individual projects with optional carousel
+const ProjectCard = ({ project }: { project: any }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const hasMultipleImages = project.images && project.images.length > 1;
+  const displayImages = project.images || (project.image ? [project.image] : null);
+
+  const nextImage = () => {
+    if (displayImages) {
+      setCurrentImageIndex((prev) => (prev + 1) % displayImages.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (displayImages) {
+      setCurrentImageIndex((prev) => (prev - 1 + displayImages.length) % displayImages.length);
+    }
+  };
+
+  return (
+    <div className="bg-card border border-border rounded-lg overflow-hidden card-hover group">
+      {/* Project Image/Carousel */}
+      {displayImages && (
+        <div className="w-full h-48 overflow-hidden relative">
+          <img
+            src={displayImages[currentImageIndex]}
+            alt={`${project.title} ${currentImageIndex + 1}`}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          
+          {/* Carousel Controls */}
+          {hasMultipleImages && (
+            <>
+              <button
+                onClick={prevImage}
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={nextImage}
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
+                aria-label="Next image"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+              
+              {/* Image indicators */}
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+                {displayImages.map((_, idx) => (
+                  <div
+                    key={idx}
+                    className={`h-1.5 rounded-full transition-all ${
+                      idx === currentImageIndex ? 'w-6 bg-white' : 'w-1.5 bg-white/50'
+                    }`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      )}
+      
+      <div className="p-6">
+        <div className="flex justify-between items-start mb-4">
+          <Folder className="h-10 w-10 text-primary" />
+          <span className="text-xs font-mono text-muted-foreground">{project.year}</span>
+        </div>
+        
+        <span className="text-xs font-mono text-primary block mb-2">{project.category}</span>
+        <h5 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+          {project.title}
+        </h5>
+        <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+          {project.description}
+        </p>
+        
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tech.map((tech: string) => (
+            <span key={tech} className="font-mono text-xs text-muted-foreground">
+              {tech}
+            </span>
+          ))}
+        </div>
+        
+        {project.github && (
+          <a 
+            href={project.github} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2"
+          >
+            <Github className="h-5 w-5" />
+            <ExternalLink className="h-3 w-3" />
+          </a>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const Projects = () => {
   const navigate = useNavigate();
   const featuredProjects = allProjects.filter(p => p.featured);
@@ -324,109 +425,9 @@ const Projects = () => {
             </h2>
             
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
-              {otherProjects.map((project, index) => {
-                const ProjectCard = () => {
-                  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-                  const hasMultipleImages = project.images && project.images.length > 1;
-                  const displayImages = project.images || (project.image ? [project.image] : null);
-
-                  const nextImage = () => {
-                    if (displayImages) {
-                      setCurrentImageIndex((prev) => (prev + 1) % displayImages.length);
-                    }
-                  };
-
-                  const prevImage = () => {
-                    if (displayImages) {
-                      setCurrentImageIndex((prev) => (prev - 1 + displayImages.length) % displayImages.length);
-                    }
-                  };
-
-                  return (
-                    <div className="bg-card border border-border rounded-lg overflow-hidden card-hover group">
-                      {/* Project Image/Carousel */}
-                      {displayImages && (
-                        <div className="w-full h-48 overflow-hidden relative">
-                          <img
-                            src={displayImages[currentImageIndex]}
-                            alt={`${project.title} ${currentImageIndex + 1}`}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                          
-                          {/* Carousel Controls */}
-                          {hasMultipleImages && (
-                            <>
-                              <button
-                                onClick={prevImage}
-                                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
-                                aria-label="Previous image"
-                              >
-                                <ChevronLeft className="h-5 w-5" />
-                              </button>
-                              <button
-                                onClick={nextImage}
-                                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
-                                aria-label="Next image"
-                              >
-                                <ChevronRight className="h-5 w-5" />
-                              </button>
-                              
-                              {/* Image indicators */}
-                              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
-                                {displayImages.map((_, idx) => (
-                                  <div
-                                    key={idx}
-                                    className={`h-1.5 rounded-full transition-all ${
-                                      idx === currentImageIndex ? 'w-6 bg-white' : 'w-1.5 bg-white/50'
-                                    }`}
-                                  />
-                                ))}
-                              </div>
-                            </>
-                          )}
-                        </div>
-                      )}
-                      
-                      <div className="p-6">
-                        <div className="flex justify-between items-start mb-4">
-                          <Folder className="h-10 w-10 text-primary" />
-                          <span className="text-xs font-mono text-muted-foreground">{project.year}</span>
-                        </div>
-                        
-                        <span className="text-xs font-mono text-primary block mb-2">{project.category}</span>
-                  <h5 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h5>
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
-                      <span key={tech} className="font-mono text-xs text-muted-foreground">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  {project.github && (
-                    <a 
-                      href={project.github} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2"
-                    >
-                      <Github className="h-5 w-5" />
-                      <ExternalLink className="h-3 w-3" />
-                    </a>
-                  )}
-                      </div>
-                    </div>
-                  );
-                };
-
-                return <ProjectCard key={index} />;
-              })}
+              {otherProjects.map((project, index) => (
+                <ProjectCard key={index} project={project} />
+              ))}
             </div>
           </div>
         </section>
