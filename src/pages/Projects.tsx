@@ -392,16 +392,22 @@ const Projects = () => {
                   {/* Image/Visual Section */}
                   <div className="md:col-span-1">
                     {project.images ? (
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-1 gap-2">
                         {project.images.map((img, idx) => (
                           <img
                             key={idx}
                             src={img}
                             alt={`${project.title} ${idx + 1}`}
-                            className="w-full h-32 object-cover rounded-lg"
+                            className="w-full h-auto object-cover rounded-lg"
                           />
                         ))}
                       </div>
+                    ) : project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-auto object-cover rounded-lg"
+                      />
                     ) : (
                       <div className="relative aspect-video bg-gradient-to-br from-primary/20 to-accent/10 rounded-lg border border-border overflow-hidden group">
                         <div className="absolute inset-0 circuit-grid opacity-20" />
