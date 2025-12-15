@@ -383,9 +383,9 @@ const Projects = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="py-16">
+      <section className="py-8">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               All <span className="text-gradient">Projects</span>
             </h1>
@@ -398,7 +398,7 @@ const Projects = () => {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-12 bg-secondary/10">
+      <section className="py-8 bg-secondary/10">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold mb-8 text-center">
             <span className="text-primary font-mono text-sm block mb-2">// FEATURED</span>
