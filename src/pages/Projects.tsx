@@ -229,65 +229,32 @@ const practiceLabs = [
   },
 ];
 
-// ProjectCard component for displaying individual projects with optional carousel
+// ProjectCard component for displaying individual projects
 const ProjectCard = ({ project }: { project: any }) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const hasMultipleImages = project.images && project.images.length > 1;
   const displayImages = project.images || (project.image ? [project.image] : null);
-
-  const nextImage = () => {
-    if (displayImages) {
-      setCurrentImageIndex((prev) => (prev + 1) % displayImages.length);
-    }
-  };
-
-  const prevImage = () => {
-    if (displayImages) {
-      setCurrentImageIndex((prev) => (prev - 1 + displayImages.length) % displayImages.length);
-    }
-  };
 
   return (
     <div className="bg-card border border-border rounded-lg overflow-hidden card-hover group">
-      {/* Project Image/Carousel */}
+      {/* Project Images */}
       {displayImages && (
-        <div className="w-full h-64 overflow-hidden relative">
-          <img
-            src={displayImages[currentImageIndex]}
-            alt={`${project.title} ${currentImageIndex + 1}`}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-          
-          {/* Carousel Controls */}
-          {hasMultipleImages && (
-            <>
-              <button
-                onClick={prevImage}
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
-                aria-label="Previous image"
-              >
-                <ChevronLeft className="h-5 w-5" />
-              </button>
-              <button
-                onClick={nextImage}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
-                aria-label="Next image"
-              >
-                <ChevronRight className="h-5 w-5" />
-              </button>
-              
-              {/* Image indicators */}
-              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
-                {displayImages.map((_, idx) => (
-                  <div
-                    key={idx}
-                    className={`h-1.5 rounded-full transition-all ${
-                      idx === currentImageIndex ? 'w-6 bg-white' : 'w-1.5 bg-white/50'
-                    }`}
-                  />
-                ))}
-              </div>
-            </>
+        <div className="w-full overflow-hidden">
+          {displayImages.length === 1 ? (
+            <img
+              src={displayImages[0]}
+              alt={project.title}
+              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          ) : (
+            <div className="grid grid-cols-2 gap-2 p-4">
+              {displayImages.map((img: string, idx: number) => (
+                <img
+                  key={idx}
+                  src={img}
+                  alt={`${project.title} ${idx + 1}`}
+                  className="w-full h-32 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                />
+              ))}
+            </div>
           )}
         </div>
       )}
