@@ -1,6 +1,10 @@
-import { ExternalLink, Github, Folder } from "lucide-react";
+import { ExternalLink, Github, Folder, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import intern1Img from "@/images/intern_main1.png";
+import intern2Img from "@/images/intern_main2.png";
+import intern3Img from "@/images/intern_main3.png";
 
 const projects = [
   {
@@ -8,6 +12,7 @@ const projects = [
     description: "Main internship project developing a custom page editor for the Product Console for page customizations in end user facing portals. Implemented front-end design, back-end Content Management, Runtime, and Portal Customization API.",
     tech: ["React TypeScript","Java", "OxygenUI", "CodeMirror", "Maven", "Git"],
     github: "https://is.docs.wso2.com/en/next/guides/branding/customize-layouts-with-editor/",
+    images: [intern1Img, intern2Img, intern3Img],
     featured: true,
   },
   {
@@ -51,6 +56,23 @@ const ProjectsSection = () => {
   const navigate = useNavigate();
   const featuredProjects = projects.filter((p) => p.featured);
   const otherProjects = projects.filter((p) => !p.featured);
+  
+  // Carousel state for featured projects
+  const [featuredImageIndexes, setFeaturedImageIndexes] = useState<{[key: number]: number}>({});
+
+  const nextFeaturedImage = (projectIndex: number, imagesLength: number) => {
+    setFeaturedImageIndexes(prev => ({
+      ...prev,
+      [projectIndex]: ((prev[projectIndex] || 0) + 1) % imagesLength
+    }));
+  };
+
+  const prevFeaturedImage = (projectIndex: number, imagesLength: number) => {
+    setFeaturedImageIndexes(prev => ({
+      ...prev,
+      [projectIndex]: ((prev[projectIndex] || 0) - 1 + imagesLength) % imagesLength
+    }));
+  };
 
   return (
     <section id="projects" className="py-24">
@@ -74,16 +96,62 @@ const ProjectsSection = () => {
               }`}
             >
               <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                {/* Project image placeholder */}
-                <div className="relative aspect-video bg-gradient-to-br from-primary/20 to-accent/10 rounded-lg border border-border overflow-hidden group">
-                  <div className="absolute inset-0 circuit-grid opacity-20" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-mono text-primary/50 text-lg">
-                      {`<project_${index + 1}/>`}
-                    </span>
+                {/* Project image carousel */}
+                {project.images ? (
+                  <div className="relative aspect-video rounded-lg overflow-hidden group/img">
+                    <img
+                      src={project.images[featuredImageIndexes[index] || 0]}
+                      alt={`${project.title} ${(featuredImageIndexes[index] || 0) + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                    
+                    {/* Carousel Navigation */}
+                    {project.images.length > 1 && (
+                      <>
+                        <button
+                          onClick={() => prevFeaturedImage(index, project.images.length)}
+                          className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background p-2 rounded-full transition-all opacity-0 group-hover/img:opacity-100"
+                          aria-label="Previous image"
+                        >
+                          <ChevronLeft className="h-5 w-5" />
+                        </button>
+                        <button
+                          onClick={() => nextFeaturedImage(index, project.images.length)}
+                          className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background p-2 rounded-full transition-all opacity-0 group-hover/img:opacity-100"
+                          aria-label="Next image"
+                        >
+                          <ChevronRight className="h-5 w-5" />
+                        </button>
+                        
+                        {/* Image Indicators */}
+                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                          {project.images.map((_: any, idx: number) => (
+                            <button
+                              key={idx}
+                              onClick={() => setFeaturedImageIndexes(prev => ({...prev, [index]: idx}))}
+                              className={`w-2 h-2 rounded-full transition-all ${
+                                idx === (featuredImageIndexes[index] || 0)
+                                  ? 'bg-primary w-6' 
+                                  : 'bg-background/60 hover:bg-background/80'
+                              }`}
+                              aria-label={`Go to image ${idx + 1}`}
+                            />
+                          ))}
+                        </div>
+                      </>
+                    )}
                   </div>
-                  <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
+                ) : (
+                  <div className="relative aspect-video bg-gradient-to-br from-primary/20 to-accent/10 rounded-lg border border-border overflow-hidden group/img">
+                    <div className="absolute inset-0 circuit-grid opacity-20" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="font-mono text-primary/50 text-lg">
+                        {`<project_${index + 1}/>`}
+                      </span>
+                    </div>
+                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
+                  </div>
+                )}
               </div>
 
               <div className={index % 2 === 1 ? "lg:order-1 lg:text-right" : ""}>
