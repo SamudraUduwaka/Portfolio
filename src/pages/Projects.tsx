@@ -123,6 +123,26 @@ const allProjects = [
     featured: false,
   },
   {
+    title: "Medibox - Smart Medicine Box",
+    description: "IoT-based smart medicine box system with automated medication reminders, temperature and humidity monitoring, and real-time alerts. Features ESP32 microcontroller integration, OLED display for time and environmental data, buzzer alarms for medication schedules, and sensor-based monitoring for optimal medicine storage conditions.",
+    tech: ["ESP32", "Arduino", "IoT", "C++", "OLED Display", "Sensors", "Real-time Systems"],
+    github: "https://github.com/SamudraUduwaka/Medibox",
+    image: mediboxImg,
+    category: "IoT & Smart Systems",
+    year: "2024",
+    featured: false,
+  },
+  {
+    title: "Self-Dryer Robot",
+    description: "Autonomous robot designed for automated drying tasks using embedded systems and sensor integration. Implements intelligent navigation, obstacle detection, and automated drying mechanisms. Features microcontroller-based control system with motor drivers and environmental sensing capabilities.",
+    tech: ["Arduino", "Embedded Systems", "Robotics", "C++", "Motor Control", "Sensors"],
+    github: "https://github.com/SamudraUduwaka/Self-Dryer-Robot",
+    image: selfdryerImg,
+    category: "IoT & Smart Systems",
+    year: "2024",
+    featured: false,
+  },
+  {
     title: "Todo App - Flutter",
     description: "A guided Flutter project implementing a Todo App with task management features. Includes task creation, editing, deletion, and status tracking with a clean mobile UI.",
     tech: ["Flutter", "Dart", "Mobile Development"],
@@ -158,26 +178,7 @@ const allProjects = [
     year: "2023",
     featured: false,
   },
-  {
-    title: "Medibox - Smart Medicine Box",
-    description: "IoT-based smart medicine box system with automated medication reminders, temperature and humidity monitoring, and real-time alerts. Features ESP32 microcontroller integration, OLED display for time and environmental data, buzzer alarms for medication schedules, and sensor-based monitoring for optimal medicine storage conditions.",
-    tech: ["ESP32", "Arduino", "IoT", "C++", "OLED Display", "Sensors", "Real-time Systems"],
-    github: "https://github.com/SamudraUduwaka/Medibox",
-    image: mediboxImg,
-    category: "IoT & Smart Systems",
-    year: "2024",
-    featured: false,
-  },
-  {
-    title: "Self-Dryer Robot",
-    description: "Autonomous robot designed for automated drying tasks using embedded systems and sensor integration. Implements intelligent navigation, obstacle detection, and automated drying mechanisms. Features microcontroller-based control system with motor drivers and environmental sensing capabilities.",
-    tech: ["Arduino", "Embedded Systems", "Robotics", "C++", "Motor Control", "Sensors"],
-    github: "https://github.com/SamudraUduwaka/Self-Dryer-Robot",
-    image: selfdryerImg,
-    category: "IoT & Smart Systems",
-    year: "2024",
-    featured: false,
-  },
+  
 ];
 
 const practiceLabs = [
