@@ -6,9 +6,12 @@ import batteryChargerImg from "@/images/Lead-acid-battery-charger.jpeg";
 import batteryChargerGroupImg from "@/images/Lead-acid-battery-charger-group.jpeg";
 import eshop1Img from "@/images/eshop1.jpeg";
 import eshop2Img from "@/images/eshop2.jpeg";
+import success1Img from "@/images/success1.jpeg";
+import success2Img from "@/images/success2.jpeg";
+import rajasi1Img from "@/images/rajasi1.jpeg";
+import rajasi2Img from "@/images/rajasi2.jpeg";
+import newTechImg from "@/images/newTech.png";
 import mediboxImg from "@/images/medibox.jpeg";
-import rajasiImg from "@/images/rajasi.jpeg";
-import successImg from "@/images/success.jpeg";
 import selfdryerImg from "@/images/selfodryer-robot-1.jpg";
 
 const allProjects = [
@@ -94,7 +97,7 @@ const allProjects = [
     description: "A fully functional PHP-based web application for school management platform named 'Success International'. Features student management, grade tracking, attendance monitoring, and administrative tools.",
     tech: ["PHP", "MySQL", "JavaScript", "Web Development"],
     github: "https://github.com/SamudraUduwaka/SuccessInternational-Web-App",
-    image: successImg,
+    images: [success1Img, success2Img],
     category: "Web Development",
     year: "2024",
     featured: false,
@@ -104,6 +107,7 @@ const allProjects = [
     description: "A fully functional PHP-based web application for an online tech store named 'NewTech'. Includes product catalog, shopping cart, user authentication, and order management system.",
     tech: ["PHP", "MySQL", "JavaScript", "E-commerce"],
     github: "https://github.com/SamudraUduwaka/NewTech-php-Web-Application",
+    image: newTechImg,
     category: "Web Development",
     year: "2024",
     featured: false,
@@ -140,7 +144,7 @@ const allProjects = [
     description: "A fully functional PHP-based restaurant web application with menu management, order processing, and customer interface. Features semantic UI for enhanced user experience.",
     tech: ["PHP", "HTML", "JS", "CSS", "MySQL", "VScode", "XAMPP", "workbench", "Bootstrap", "Semantic UI"],
     github: "https://github.com/SamudraUduwaka/Rajasi-Cousines",
-    image: rajasiImg,
+    images: [rajasi1Img, rajasi2Img],
     category: "Web Development",
     year: "2024",
     featured: false,
