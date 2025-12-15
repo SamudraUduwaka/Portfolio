@@ -3,6 +3,11 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import batteryChargerImg from "@/images/Lead-acid-battery-charger.jpeg";
 import batteryChargerGroupImg from "@/images/Lead-acid-battery-charger-group.jpeg";
+import eshopImg from "@/images/eshop.jpeg";
+import mediboxImg from "@/images/medibox.jpeg";
+import rajasiImg from "@/images/rajasi.jpeg";
+import successImg from "@/images/success.jpeg";
+import selfdryerImg from "@/images/selfodryer-robot-1.jpg";
 
 const allProjects = [
   {
@@ -77,6 +82,7 @@ const allProjects = [
     description: "A fully functional e-commerce web application with complete shopping cart functionality, user authentication, product management, and order processing. Includes database management for products, users, and transactions.",
     tech: ["PHP", "MySQL", "JavaScript", "HTML/CSS", "Web Development"],
     github: "https://github.com/SamudraUduwaka/eShop-Ecommerce-Web-Application",
+    image: eshopImg,
     category: "Web Development",
     year: "2024",
     featured: false,
@@ -86,6 +92,7 @@ const allProjects = [
     description: "A fully functional PHP-based web application for school management platform named 'Success International'. Features student management, grade tracking, attendance monitoring, and administrative tools.",
     tech: ["PHP", "MySQL", "JavaScript", "Web Development"],
     github: "https://github.com/SamudraUduwaka/SuccessInternational-Web-App",
+    image: successImg,
     category: "Web Development",
     year: "2024",
     featured: false,
@@ -131,6 +138,7 @@ const allProjects = [
     description: "A fully functional PHP-based restaurant web application with menu management, order processing, and customer interface. Features semantic UI for enhanced user experience.",
     tech: ["PHP", "HTML", "JS", "CSS", "MySQL", "VScode", "XAMPP", "workbench", "Bootstrap", "Semantic UI"],
     github: "https://github.com/SamudraUduwaka/Rajasi-Cousines",
+    image: rajasiImg,
     category: "Web Development",
     year: "2024",
     featured: false,
