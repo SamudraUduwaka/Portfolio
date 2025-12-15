@@ -216,7 +216,7 @@ const ProjectCard = ({ project }: { project: any }) => {
     <div className="bg-card border border-border rounded-lg overflow-hidden card-hover group">
       {/* Project Image/Carousel */}
       {displayImages && (
-        <div className="w-full h-48 overflow-hidden relative">
+        <div className="w-full h-64 overflow-hidden relative">
           <img
             src={displayImages[currentImageIndex]}
             alt={`${project.title} ${currentImageIndex + 1}`}
@@ -258,10 +258,17 @@ const ProjectCard = ({ project }: { project: any }) => {
       )}
       
       <div className="p-6">
-        <div className="flex justify-between items-start mb-4">
-          <Folder className="h-10 w-10 text-primary" />
-          <span className="text-xs font-mono text-muted-foreground">{project.year}</span>
-        </div>
+        {!displayImages && (
+          <div className="flex justify-between items-start mb-4">
+            <Folder className="h-10 w-10 text-primary" />
+            <span className="text-xs font-mono text-muted-foreground">{project.year}</span>
+          </div>
+        )}
+        {displayImages && (
+          <div className="flex justify-end mb-4">
+            <span className="text-xs font-mono text-muted-foreground">{project.year}</span>
+          </div>
+        )}
         
         <span className="text-xs font-mono text-primary block mb-2">{project.category}</span>
         <h5 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
