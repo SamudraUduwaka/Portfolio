@@ -91,9 +91,9 @@ const HeroSection = () => {
             Explore My Work
             <ArrowDown className="ml-2 h-4 w-4" />
           </Button>
-          <a href="/Portfolio/CV/Samudra_Uduwaka_CV.pdf" download="Samudra_Uduwaka_CV.pdf">
+          <a href="/Portfolio/CV/Samudra_Uduwaka_Resume.pdf" target="_blank" rel="noopener noreferrer">
             <Button variant="hero-outline" size="lg">
-              Download CV
+              View Resume
             </Button>
           </a>
         </div>

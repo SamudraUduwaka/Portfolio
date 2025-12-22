@@ -63,11 +63,6 @@ const Navbar = () => {
                 {item.label}
               </button>
             ))}
-            <a href="/Portfolio/CV/Samudra_Uduwaka_CV.pdf" download="Samudra_Uduwaka_CV.pdf">
-              <Button variant="hero" size="sm">
-                Resume
-              </Button>
-            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -92,11 +87,6 @@ const Navbar = () => {
                   {item.label}
                 </button>
               ))}
-              <a href="/Portfolio/CV/Samudra_Uduwaka_CV.pdf" download="Samudra_Uduwaka_CV.pdf">
-                <Button variant="hero" size="sm" className="w-fit">
-                  Resume
-                </Button>
-              </a>
             </div>
           </div>
         )}
