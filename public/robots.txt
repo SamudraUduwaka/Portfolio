@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://samudrauduwaka.github.io/Portfolio/sitemap.xml
