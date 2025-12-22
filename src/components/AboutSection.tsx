@@ -47,16 +47,16 @@ const AboutSection = () => {
                   <span className="text-foreground">skills</span>: [
                 </p>
                 <p className="ml-8 text-primary">"JavaScript", "Java", "PHP", "HTML",</p>
-                <p className="ml-8 text-primary">"React", "Python", "C++", "Arduino",</p>
+                <p className="ml-8 text-primary">"React", "Python", "C++",</p>
                 <p className="ml-8 text-primary">"MATLAB"</p>
                 <p className="ml-4 text-muted-foreground">],</p>
                 <p className="ml-4 text-muted-foreground">
                   <span className="text-foreground">interests</span>: [
                 </p>
-                <p className="ml-8 text-primary">"Web development",</p>
+                <p className="ml-8 text-primary">"Web Design and Development",</p>
                 <p className="ml-8 text-primary">"Machine Learning",</p>
-                <p className="ml-8 text-primary">"Artificial Intelligence",</p>
-                <p className="ml-8 text-primary">"Embedded and IoT"</p>
+                <p className="ml-8 text-primary">"Computer Vision",</p>
+                <p className="ml-8 text-primary">"Distributed systems and Networking"</p>
                 <p className="ml-4 text-muted-foreground">]</p>
                 <p className="text-muted-foreground">{"}"};</p>
               </div>
