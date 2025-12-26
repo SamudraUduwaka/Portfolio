@@ -12,6 +12,7 @@ interface Certificate {
   date: string;
   image: string;
   link: string;
+  credentialId?: string;
 }
 
 const CertificationsSection = () => {
@@ -21,58 +22,59 @@ const CertificationsSection = () => {
     {
       title: "WSO2 Certified Identity Server Practitioner - V7.0",
       organization: "WSO2",
-      date: "Issued Aug 2024",
+      date: "Issued Jan 2025",
       image: "/Portfolio/Certifications/WSO2 Certified Identity Server Practitioner - V7.0.png",
-      link: "https://certification.wso2.com/web/certificate/CISPV70-1724839073973",
+      link: "https://certification.wso2.com/certificate/CID-04873024/a09VM000007wH1FYAU",
     },
     {
       title: "Getting Started with Deep Learning",
       organization: "NVIDIA Deep Learning Institute",
-      date: "Issued Mar 2024",
+      date: "Issued Dec 2025",
       image: "/Portfolio/Certifications/NVIDIA_DL.png",
-      link: "https://courses.nvidia.com/certificates/63806f57f8b24b7ea24e72fa89fe1024/",
+      link: "https://learn.nvidia.com/certificates?id=TRPfacAQSVSKlGxeLLZ7kA",
     },
     {
       title: "Machine Learning Specialization",
       organization: "DeepLearning.AI & Stanford via Coursera",
-      date: "Issued 2024",
+      date: "Issued Nov 2023",
       image: "/Portfolio/Certifications/Machine learning specialization.png",
-      link: "https://www.coursera.org/account/accomplishments/specialization/certificate/XXXXXXXXX",
+      link: "https://coursera.org/share/00c21a1aef4a7f4a1a2ec6ab34fadef6",
     },
     {
       title: "OpenCV Bootcamp",
       organization: "OpenCV University",
-      date: "Issued Apr 2024",
+      date: "Issued Jun 2024",
       image: "/Portfolio/Certifications/OpenCV Bootcamp.png",
-      link: "https://courses.opencv.org/certificates/0c07d9a1e1234e74a43e3cd21dd9c8ca",
+      link: "https://courses.opencv.org/certificates/d5dbf0436a2c4b3e99197f1dd0cb785c",
     },
     {
       title: "TensorFlow Keras Bootcamp",
       organization: "OpenCV University",
-      date: "Issued Apr 2024",
+      date: "Issued Nov 2024",
       image: "/Portfolio/Certifications/TensorFlow Keras Bootcamp.png",
-      link: "https://courses.opencv.org/certificates/5df7ff81c3a145c7bcce1f9b6afc5b67",
+      link: "https://courses.opencv.org/certificates/b4bdd1ddae624aacbfffb9070119bd60",
     },
     {
       title: "Docker Training Course for the Absolute Beginner",
-      organization: "Udemy",
-      date: "Issued Jan 2024",
+      organization: "KodeKloud",
+      date: "Issued Feb 2025",
       image: "/Portfolio/Certifications/Docker Training Course for the Absolute Beginner.png",
-      link: "https://www.udemy.com/certificate/UC-8c24d97c-be7c-4bec-a12d-a8e2e5017f1c/",
+      link: "https://learn.kodekloud.com/user/certificate/69357eda-da45-4dc4-a1f4-4be960af4366",
     },
     {
       title: "Introduction to Graph Theory",
-      organization: "Udemy",
-      date: "Issued Jan 2024",
+      organization: "Coursera - University of California San Diego",
+      date: "Issued Jun 2024",
       image: "/Portfolio/Certifications/Introduction to Graph Theory.png",
-      link: "https://www.udemy.com/certificate/UC-28df0d2b-2cac-419c-aa43-e65ce5cd3c05/",
+      link: "https://coursera.org/verify/VJTQCC6SU2PX",
     },
     {
       title: "Foundations of Project Management",
-      organization: "Google via Coursera",
-      date: "Issued Sep 2023",
+      organization: "Univerisity of Moratuwa - OpenU",
+      date: "Issued Dec 2023",
       image: "/Portfolio/Certifications/Foundations of Project Management.png",
-      link: "https://www.coursera.org/account/accomplishments/verify/BKZXMLBWSDPJ",
+      link: "https://open.uom.lk/verify",
+      credentialId: "wO79paJGFa",
     },
   ];
 

@@ -1,5 +1,6 @@
 import { ExternalLink, Github, MessageSquare, Radio, FileAudio, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import meshtasticLogo from "@/images/Meshtastic Logo.jpeg";
 
 const FypSection = () => {
   return (
@@ -21,13 +22,17 @@ const FypSection = () => {
         <div className="max-w-5xl mx-auto mb-16">
           <div className="bg-card border border-border rounded-lg p-8">
             <div className="flex items-start gap-4 mb-6">
-              <div className="p-3 bg-primary/10 rounded-lg">
-                <Network className="h-8 w-8 text-primary" />
+              <div className="p-3 bg-primary/10 rounded-lg overflow-hidden">
+                <img 
+                  src={meshtasticLogo} 
+                  alt="Meshtastic Logo" 
+                  className="h-8 w-8 object-contain"
+                />
               </div>
               <div>
                 <h4 className="text-2xl font-bold mb-2">Meshtastic Network for Disaster Management</h4>
                 <p className="text-muted-foreground font-mono text-sm">
-                  Research & Development Project - 2024 - Present
+                  Final Year Thesis Project - Aug 2025 - Present
                 </p>
               </div>
             </div>

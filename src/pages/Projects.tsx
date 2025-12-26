@@ -69,7 +69,7 @@ const allProjects = [
     github: "https://github.com/SamudraUduwaka/Transformer-maintenance-record-keeper-team-backslash",
     images: [transformer2Img, transformer3Img],
     category: "Full-Stack Development",
-    year: "2024",
+    year: "2025",
     featured: true,
   },
   {
@@ -89,7 +89,7 @@ const allProjects = [
     github: "https://github.com/SamudraUduwaka/eShop-Ecommerce-Web-Application",
     images: [eshop1Img, eshop2Img],
     category: "Web Development",
-    year: "2024",
+    year: "2022",
     featured: false,
   },
   {
@@ -99,7 +99,7 @@ const allProjects = [
     github: "https://github.com/SamudraUduwaka/SuccessInternational-Web-App",
     images: [success1Img, success2Img],
     category: "Web Development",
-    year: "2024",
+    year: "2022",
     featured: false,
   },
   {
@@ -109,7 +109,7 @@ const allProjects = [
     github: "https://github.com/SamudraUduwaka/NewTech-php-Web-Application",
     image: newTechImg,
     category: "Web Development",
-    year: "2024",
+    year: "2022",
     featured: false,
   },
   {
@@ -119,7 +119,7 @@ const allProjects = [
     github: "https://github.com/SamudraUduwaka/Rajasi-Cousines",
     images: [rajasi1Img, rajasi2Img],
     category: "Web Development",
-    year: "2024",
+    year: "2023",
     featured: false,
   },
   {
@@ -139,7 +139,7 @@ const allProjects = [
     github: "https://github.com/SamudraUduwaka/Self-Dryer-Robot",
     image: selfdryerImg,
     category: "IoT & Smart Systems",
-    year: "2024",
+    year: "2023",
     featured: false,
   },
   {
@@ -149,7 +149,7 @@ const allProjects = [
     github: "https://github.com/SamudraUduwaka/layout-builder-demo-CraftJS",
     image: dragDropImg,
     category: "Web Development",
-    year: "2024",
+    year: "2025",
     featured: false,
   },
   {
@@ -197,7 +197,7 @@ const allProjects = [
     github: null,
     image: adaptiveTrafficImg,
     category: "IoT & Smart Systems",
-    year: "2023",
+    year: "2024",
     featured: false,
   },
   
@@ -205,7 +205,7 @@ const allProjects = [
 
 const practiceLabs = [
   {
-    title: "Neural Networks Assignment",
+    title: "Neural Networks Assignments",
     description: "Implementation and experimentation with various neural network architectures. Covers feedforward networks, backpropagation, activation functions, and optimization techniques for different learning tasks.",
     tech: ["Python", "Jupyter Notebook", "Neural Networks", "Deep Learning"],
     github: "https://github.com/SamudraUduwaka/Neural-Networks-Assignment",
