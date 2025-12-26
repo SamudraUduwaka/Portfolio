@@ -1,12 +1,29 @@
-import { ExternalLink, Users, Calendar, Award } from "lucide-react";
+import { ExternalLink, Users, Calendar, Award, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogClose,
+} from "@/components/ui/dialog";
 import rotaractImg1 from "@/images/Rotaract-induction1.jpg";
 import rotaractImg2 from "@/images/Rotaract-induction2.jpg";
 import repsImg from "@/images/reps2-3.jpeg";
 import eclubImg from "@/images/eclub_secretary.jpg";
 import ieslImg from "@/images/iesl.jpg";
 import spsImg from "@/images/ieeespsmoratuwa_logo.jpg";
+
+interface Activity {
+  title: string;
+  organization: string;
+  period: string;
+  type: string;
+  description: string;
+  featured: boolean;
+  image?: string;
+  images?: string[];
+}
 
 const featuredActivities = [
   {
@@ -59,6 +76,8 @@ const featuredActivities = [
 
 const ExtracurricularSection = () => {
   const navigate = useNavigate();
+  const [selectedActivity, setSelectedActivity] = useState<Activity | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
 
   return (
     <section id="extracurricular" className="py-24 bg-secondary/30">
@@ -85,13 +104,17 @@ const ExtracurricularSection = () => {
               >
                 {/* Image Section */}
                 {(activity.image || activity.images) && (
-                  <div className="w-full aspect-video bg-muted overflow-hidden">
+                  <div className="w-full aspect-video bg-muted overflow-hidden cursor-pointer">
                     {activity.images ? (
                       <div className="grid grid-cols-2 gap-0.5 h-full">
                         {activity.images.map((img, idx) => (
                           <div
                             key={idx}
                             className="overflow-hidden relative"
+                            onClick={() => {
+                              setSelectedActivity(activity);
+                              setSelectedImageIndex(idx);
+                            }}
                           >
                             <img
                               src={img}
@@ -102,11 +125,16 @@ const ExtracurricularSection = () => {
                         ))}
                       </div>
                     ) : (
-                      <img
-                        src={activity.image}
-                        alt={activity.organization}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                      />
+                      <div onClick={() => {
+                        setSelectedActivity(activity);
+                        setSelectedImageIndex(0);
+                      }}>
+                        <img
+                          src={activity.image}
+                          alt={activity.organization}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                        />
+                      </div>
                     )}
                   </div>
                 )}
@@ -156,6 +184,42 @@ const ExtracurricularSection = () => {
             <ExternalLink className="ml-2 h-4 w-4" />
           </Button>
         </div> */}
+
+        {/* Activity Image Modal */}
+        <Dialog open={!!selectedActivity} onOpenChange={() => setSelectedActivity(null)}>
+          <DialogContent className="max-w-4xl w-[95vw] p-0 bg-black/95 border-primary/20">
+            <DialogClose className="absolute right-4 top-4 z-50 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+              <X className="h-6 w-6 text-white hover:text-primary" />
+              <span className="sr-only">Close</span>
+            </DialogClose>
+            {selectedActivity && (
+              <div className="relative">
+                <img
+                  src={selectedActivity.images ? selectedActivity.images[selectedImageIndex] : selectedActivity.image}
+                  alt={selectedActivity.organization}
+                  className="w-full h-auto max-h-[90vh] object-contain"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    {selectedActivity.type === "Leadership Position" ? (
+                      <Award className="h-5 w-5 text-primary" />
+                    ) : (
+                      <Users className="h-5 w-5 text-primary" />
+                    )}
+                    <span className="text-xs font-mono text-primary uppercase tracking-wider">
+                      {selectedActivity.type}
+                    </span>
+                  </div>
+                  <h3 className="text-white font-semibold text-lg mb-1">
+                    {selectedActivity.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm mb-1">{selectedActivity.organization}</p>
+                  <p className="text-gray-400 text-xs">{selectedActivity.period}</p>
+                </div>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   );
