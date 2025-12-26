@@ -197,7 +197,7 @@ const ProjectsSection = () => {
         </div>
 
         {/* Other Projects */}
-        <h4 className="font-mono text-center text-xl mb-8">Other Noteworthy Projects</h4>
+        {/* <h4 className="font-mono text-center text-xl mb-8">Other Noteworthy Projects</h4>
         <div className="grid md:grid-cols-2 gap-6">
           {otherProjects.map((project) => (
             <div
@@ -243,7 +243,7 @@ const ProjectsSection = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         <div className="text-center mt-12 flex flex-col sm:flex-row gap-4 justify-center">
           <Button 
