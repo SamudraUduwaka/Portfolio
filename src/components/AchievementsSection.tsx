@@ -53,7 +53,7 @@ const featuredAchievements: Achievement[] = [
     title: "GitHub Pull Shark x2",
     organization: "GitHub",
     year: "2025",
-    description: "Earned for opening merged pull requests across open-source projects, contributing to the global developer community.",
+    description: "Earned for opening merged pull requests across open-source projects.",
     type: "Open Source",
     image: pullSharkImg,
   },

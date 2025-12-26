@@ -8,6 +8,10 @@ import intern3Img from "@/images/intern_main3.png";
 import transformer2Img from "@/images/transformer_main2.png";
 import transformer3Img from "@/images/transformer_main3.png";
 import mcqGraderImg from "@/images/mcq_grader.webp";
+import eshop1Img from "@/images/eshop1.jpeg";
+import eshop2Img from "@/images/eshop2.jpeg";
+import success1Img from "@/images/success1.jpeg";
+import success2Img from "@/images/success2.jpeg";
 
 const projects = [
   {
@@ -38,6 +42,7 @@ const projects = [
     description: "A fully functional e-commerce web application with complete shopping cart functionality, user authentication, product management, and order processing.",
     tech: ["PHP", "MySQL", "JavaScript", "Bootstrap", "Payhere Sandbox for payment gateway"],
     github: "https://github.com/SamudraUduwaka/eShop-Ecommerce-Web-Application",
+    images: [eshop1Img, eshop2Img],
     featured: false,
   },
   {
@@ -45,6 +50,7 @@ const projects = [
     description: "A fully functional PHP-based web application for school management platform. Features student management, grade tracking, attendance monitoring, and administrative tools.",
     tech: ["PHP", "MySQL", "JavaScript", "Bootstrap", "Payhere Sandbox for payment gateway"],
     github: "https://github.com/SamudraUduwaka/SuccessInternational-Web-App",
+    images: [success1Img, success2Img],
     featured: false,
   },
   {
@@ -196,31 +202,44 @@ const ProjectsSection = () => {
           {otherProjects.map((project) => (
             <div
               key={project.title}
-              className="bg-card border border-border rounded-lg p-6 card-hover group"
+              className="bg-card border border-border rounded-lg overflow-hidden card-hover group"
             >
-              <div className="flex justify-between items-start mb-4">
-                <Folder className="h-10 w-10 text-primary" />
-                <div className="flex gap-3">
-                  <a 
-                    href={project.github} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Github className="h-5 w-5" />
-                  </a>
+              <div className="flex">
+                <div className="flex-1 p-6">
+                  <div className="flex justify-between items-start mb-4">
+                    <Folder className="h-10 w-10 text-primary" />
+                    <div className="flex gap-3">
+                      <a 
+                        href={project.github} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        <Github className="h-5 w-5" />
+                      </a>
+                    </div>
+                  </div>
+                  <h5 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h5>
+                  <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech) => (
+                      <span key={tech} className="font-mono text-xs text-muted-foreground">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <h5 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                {project.title}
-              </h5>
-              <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((tech) => (
-                  <span key={tech} className="font-mono text-xs text-muted-foreground">
-                    {tech}
-                  </span>
-                ))}
+                {(project.image || project.images) && (
+                  <div className="w-48 flex-shrink-0 relative overflow-hidden">
+                    <img
+                      src={project.image || (project.images && project.images[0])}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           ))}
