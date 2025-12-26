@@ -264,10 +264,11 @@ const AchievementsSection = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-8">
-          <a href="https://www.linkedin.com/in/samudra-samaah-uduwaka" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/samudra-uduwaka" target="_blank" rel="noopener noreferrer">
             <Button variant="hero-outline" size="lg">
               <Linkedin className="mr-2 h-4 w-4" />
-              View All from LinkedIn
+              View All on LinkedIn
+              <ExternalLink className="ml-2 h-4 w-4" />
             </Button>
           </a>
         </div>
