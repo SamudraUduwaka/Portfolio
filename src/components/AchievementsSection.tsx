@@ -12,6 +12,7 @@ import comfixCertificateImg from "@/images/comfix_finalist_certificate.jpeg";
 import codesprintTop10Img from "@/images/codesprint_top10_certificate.jpg";
 import codesprintTop50Img from "@/images/codesprint_top50.jpg";
 import sliotNexifyImg from "@/images/Team_Nexify_SLIOT.jpg";
+import pullSharkImg from "@/images/pull-shark-default-498c279a747d.png";
 
 interface Achievement {
   title: string;
@@ -25,18 +26,18 @@ interface Achievement {
 
 const featuredAchievements: Achievement[] = [
   {
-    title: "ComFiX Hackathon - Team AdHoc Finalists",
+    title: "ComFiX - Team AdHoc Finalists",
     organization: "IIT Sri Lanka & IEEE Student Branch",
-    year: "2025",
-    description: "Secured finalist position in ComFiX Hackathon with Team AdHoc, competing in a 24-hour coding challenge focused on innovative tech solutions.",
+    year: "2024",
+    description: "Secured finalist position in ComFiX Challenge with Team AdHoc.",
     type: "Competition",
     images: [comfixFinalistsImg, comfixCertificateImg],
   },
   {
     title: "CodeSprint Top 10",
-    organization: "IEEEXtreme ENTC UoM",
+    organization: "IEEE Computer Society and IEEE Student Branch IIT",
     year: "2024",
-    description: "Achieved Top 10 position in CodeSprint competitive programming competition, demonstrating strong problem-solving and algorithmic skills.",
+    description: "Achieved Top 10 position in CodeSprint competition.",
     type: "Competition",
     images: [codesprintTop10Img, codesprintTop50Img],
   },
@@ -54,6 +55,7 @@ const featuredAchievements: Achievement[] = [
     year: "2025",
     description: "Earned for opening merged pull requests across open-source projects, contributing to the global developer community.",
     type: "Open Source",
+    image: pullSharkImg,
   },
 ];
 
