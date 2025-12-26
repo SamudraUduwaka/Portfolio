@@ -1,4 +1,4 @@
-import { Award, Trophy, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Award, Trophy, ExternalLink, X, ChevronLeft, ChevronRight, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -263,16 +263,14 @@ const AchievementsSection = () => {
         </Dialog>
 
         {/* Call to Action */}
-        {/* <div className="text-center">
-          <Button 
-            variant="hero-outline" 
-            size="lg"
-            onClick={() => navigate('/achievements')}
-          >
-            View All Achievements
-            <ExternalLink className="ml-2 h-4 w-4" />
-          </Button>
-        </div> */}
+        <div className="text-center mt-8">
+          <a href="https://www.linkedin.com/in/samudra-samaah-uduwaka" target="_blank" rel="noopener noreferrer">
+            <Button variant="hero-outline" size="lg">
+              <Linkedin className="mr-2 h-4 w-4" />
+              View All from LinkedIn
+            </Button>
+          </a>
+        </div>
       </div>
     </section>
   );
