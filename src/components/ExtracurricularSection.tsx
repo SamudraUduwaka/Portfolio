@@ -21,11 +21,21 @@ const featuredActivities = [
   {
     title: "Executive Director",
     organization: "Team Coordination and HR Management - Morawings IESL",
-    period: "Oct 2023 - Present",
+    period: "Sept 2025 - Present",
     type: "Leadership Position",
     description: "Overseeing team coordination and human resource management, managing volunteer recruitment, and ensuring effective collaboration across projects.",
     featured: true,
     image: ieslImg,
+  },
+  
+  {
+    title: "Batch Representative",
+    organization: "For Semester 2 and 3 at ENTC UoM",
+    period: "May 2023 - Feb 2024",
+    type: "Student Representative",
+    description: "Represented the batch in departmental meetings, communicated student concerns to faculty, and facilitated academic coordination.",
+    featured: true,
+    image: repsImg,
   },
   {
     title: "Secretary",
@@ -35,15 +45,6 @@ const featuredActivities = [
     description: "Managing IEEE SPS activities, coordinating events, webinars, and workshops focused on signal processing, machine learning, and related technologies.",
     featured: true,
     image: spsImg,
-  },
-  {
-    title: "Batch Representative",
-    organization: "For Semester 2 and 3 at ENTC UoM",
-    period: "May 2023 - Feb 2024",
-    type: "Student Representative",
-    description: "Represented the batch in departmental meetings, communicated student concerns to faculty, and facilitated academic coordination.",
-    featured: true,
-    image: repsImg,
   },
   {
     title: "Inducted Member",
@@ -145,7 +146,7 @@ const ExtracurricularSection = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <Button 
             variant="hero-outline" 
             size="lg"
@@ -154,7 +155,7 @@ const ExtracurricularSection = () => {
             View All Activities
             <ExternalLink className="ml-2 h-4 w-4" />
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
