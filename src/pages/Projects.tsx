@@ -172,15 +172,7 @@ const allProjects = [
     year: "2024",
     featured: false,
   },
-  {
-    title: "Todo App - Flutter",
-    description: "A guided Flutter project implementing a Todo App with task management features. Includes task creation, editing, deletion, and status tracking with a clean mobile UI.",
-    tech: ["Flutter", "Dart", "Mobile Development"],
-    github: "https://github.com/SamudraUduwaka/Todo-App",
-    category: "Mobile Development",
-    year: "2024",
-    featured: false,
-  },
+  
   {
     title: "Mini Trading System - LSEG Flower Exchange",
     description: "Mini Trading System implementing LSEG Flower Exchange Application with C++ for data handling and order matching algorithms.",
@@ -197,6 +189,15 @@ const allProjects = [
     github: null,
     image: adaptiveTrafficImg,
     category: "IoT & Smart Systems",
+    year: "2024",
+    featured: false,
+  },
+  {
+    title: "Todo App - Flutter",
+    description: "A guided Flutter project implementing a Todo App with task management features. Includes task creation, editing, deletion, and status tracking with a clean mobile UI.",
+    tech: ["Flutter", "Dart", "Mobile Development"],
+    github: "https://github.com/SamudraUduwaka/Todo-App",
+    category: "Mobile Development",
     year: "2024",
     featured: false,
   },
