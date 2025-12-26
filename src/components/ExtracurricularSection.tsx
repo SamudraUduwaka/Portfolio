@@ -78,6 +78,11 @@ const ExtracurricularSection = () => {
   const navigate = useNavigate();
   const [selectedActivity, setSelectedActivity] = useState<Activity | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+
+  const handleImageLoad = (src: string) => {
+    setLoadedImages(prev => new Set([...prev, src]));
+  };
 
   return (
     <section id="extracurricular" className="py-24 bg-secondary/30">
@@ -104,7 +109,7 @@ const ExtracurricularSection = () => {
               >
                 {/* Image Section */}
                 {(activity.image || activity.images) && (
-                  <div className="w-full aspect-video bg-muted overflow-hidden cursor-pointer">
+                  <div className="w-full aspect-video bg-muted overflow-hidden cursor-pointer relative">
                     {activity.images ? (
                       <div className="grid grid-cols-2 gap-0.5 h-full">
                         {activity.images.map((img, idx) => (
@@ -116,10 +121,18 @@ const ExtracurricularSection = () => {
                               setSelectedImageIndex(idx);
                             }}
                           >
+                            {!loadedImages.has(img) && (
+                              <div className="absolute inset-0 flex items-center justify-center bg-muted">
+                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                              </div>
+                            )}
                             <img
                               src={img}
                               alt={`${activity.organization} ${idx + 1}`}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                              className={`w-full h-full object-cover group-hover:scale-105 transition-transform ${
+                                !loadedImages.has(img) ? 'opacity-0' : 'opacity-100'
+                              }`}
+                              onLoad={() => handleImageLoad(img)}
                             />
                           </div>
                         ))}
@@ -129,11 +142,19 @@ const ExtracurricularSection = () => {
                         setSelectedActivity(activity);
                         setSelectedImageIndex(0);
                       }}>
+                        {activity.image && !loadedImages.has(activity.image) && (
+                          <div className="absolute inset-0 flex items-center justify-center bg-muted">
+                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+                          </div>
+                        )}
                         <img
                           src={activity.image}
                           alt={activity.organization}
-                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform"
+                          className={`w-full h-full object-cover object-center group-hover:scale-105 transition-transform ${
+                            activity.image && !loadedImages.has(activity.image) ? 'opacity-0' : 'opacity-100'
+                          }`}
                           style={{ objectPosition: 'center 40%' }}
+                          onLoad={() => activity.image && handleImageLoad(activity.image)}
                         />
                       </div>
                     )}

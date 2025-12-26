@@ -17,6 +17,11 @@ interface Certificate {
 
 const CertificationsSection = () => {
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+
+  const handleImageLoad = (src: string) => {
+    setLoadedImages(prev => new Set([...prev, src]));
+  };
 
   const certificates: Certificate[] = [
     {
@@ -100,13 +105,21 @@ const CertificationsSection = () => {
               className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all hover:shadow-lg"
             >
               <div 
-                className="aspect-video bg-muted overflow-hidden cursor-pointer"
+                className="aspect-video bg-muted overflow-hidden cursor-pointer relative"
                 onClick={() => setSelectedCertificate(cert)}
               >
+                {!loadedImages.has(cert.image) && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-muted">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+                  </div>
+                )}
                 <img
                   src={cert.image}
                   alt={cert.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  className={`w-full h-full object-cover group-hover:scale-105 transition-transform ${
+                    !loadedImages.has(cert.image) ? 'opacity-0' : 'opacity-100'
+                  }`}
+                  onLoad={() => handleImageLoad(cert.image)}
                 />
               </div>
               <div className="p-4">
