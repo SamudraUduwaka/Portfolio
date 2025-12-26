@@ -7,6 +7,7 @@ import intern2Img from "@/images/intern_main2.png";
 import intern3Img from "@/images/intern_main3.png";
 import transformer2Img from "@/images/transformer_main2.png";
 import transformer3Img from "@/images/transformer_main3.png";
+import mcqGraderImg from "@/images/mcq_grader.webp";
 
 const projects = [
   {
@@ -51,6 +52,7 @@ const projects = [
     description: "Automated MCQ grading process using image processing techniques. Detects and analyzes answer sheets, performs optical mark recognition, and generates grading reports automatically.",
     tech: ["Python", "OpenCV", "Image Processing"],
     github: "https://github.com/SamudraUduwaka/Automatic-MCQ-Grader",
+    image: mcqGraderImg,
     featured: false,
   },
 ];

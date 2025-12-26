@@ -21,6 +21,12 @@ import dragDropImg from "@/images/drag and drop.png";
 import marketingCampaignsImg from "@/images/marketing campaigns.png";
 import transformer2Img from "@/images/transformer_main2.png";
 import transformer3Img from "@/images/transformer_main3.png";
+import mcqGraderImg from "@/images/mcq_grader.webp";
+import adaptiveTrafficImg from "@/images/adaptive traffic control.jpg";
+import scanner1Img from "@/images/3dscanner_1.jpg";
+import scanner2Img from "@/images/3dscanner_2.jpg";
+import scanner3Img from "@/images/3dscanner_3.jpg";
+import scanner4Img from "@/images/3dscanner_4.jpg";
 
 const allProjects = [
   {
@@ -71,6 +77,7 @@ const allProjects = [
     description: "Automated MCQ grading process using image processing techniques. Detects and analyzes answer sheets, performs optical mark recognition, and generates grading reports automatically. Reduces manual grading effort and improves accuracy.",
     tech: ["Python", "Image Processing", "OpenCV", "Pattern Recognition"],
     github: "https://github.com/SamudraUduwaka/Automatic-MCQ-Grader",
+    image: mcqGraderImg,
     category: "Computer Vision",
     year: "2024",
     featured: true,
@@ -160,6 +167,7 @@ const allProjects = [
     description: "3D Scanner machine developed as a Level 2 University project. Complete hardware-software integration for 3D object scanning and reconstruction. Uses stepper motors, sensors, and processing algorithms to create 3D models of physical objects.",
     tech: ["C++", "SOLIDWORKS", "Embedded Systems", "3D Reconstruction", "Arduino"],
     github: "https://github.com/SamudraUduwaka/3D-Scanner",
+    images: [scanner1Img, scanner2Img, scanner3Img, scanner4Img],
     category: "Embedded Systems",
     year: "2024",
     featured: false,
@@ -187,6 +195,7 @@ const allProjects = [
     description: "Intelligent traffic control system using C++ and Python with Kaggle integration and ESP32 CAM module for real-time traffic monitoring and adaptive signal control.",
     tech: ["C++", "Python", "Kaggle", "ESP32 CAM module"],
     github: null,
+    image: adaptiveTrafficImg,
     category: "IoT & Smart Systems",
     year: "2023",
     featured: false,
