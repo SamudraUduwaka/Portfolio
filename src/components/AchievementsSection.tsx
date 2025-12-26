@@ -1,4 +1,4 @@
-import { Award, Trophy, ExternalLink, X } from "lucide-react";
+import { Award, Trophy, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -64,9 +64,28 @@ const AchievementsSection = () => {
   const [selectedAchievement, setSelectedAchievement] = useState<Achievement | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+  const [currentPage, setCurrentPage] = useState<number>(0);
+
+  const ITEMS_PER_PAGE = 3;
+  const totalPages = Math.ceil(featuredAchievements.length / ITEMS_PER_PAGE);
+  const startIndex = currentPage * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const currentAchievements = featuredAchievements.slice(startIndex, endIndex);
 
   const handleImageLoad = (src: string) => {
     setLoadedImages(prev => new Set([...prev, src]));
+  };
+
+  const nextPage = () => {
+    if (currentPage < totalPages - 1) {
+      setCurrentPage(prev => prev + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(prev => prev - 1);
+    }
   };
 
   return (
@@ -85,9 +104,30 @@ const AchievementsSection = () => {
         </div>
 
         {/* Featured Achievements */}
-        <div className="max-w-7xl mx-auto mb-12">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredAchievements.map((achievement, index) => (
+        <div className="max-w-7xl mx-auto mb-12 relative">
+          {/* Navigation Arrows */}
+          {currentPage > 0 && (
+            <button
+              onClick={prevPage}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-primary hover:bg-primary/90 text-primary-foreground p-3 rounded-full transition-all shadow-lg"
+              aria-label="Previous achievements"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+          )}
+          
+          {currentPage < totalPages - 1 && (
+            <button
+              onClick={nextPage}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-primary hover:bg-primary/90 text-primary-foreground p-3 rounded-full transition-all shadow-lg"
+              aria-label="Next achievements"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+          )}
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {currentAchievements.map((achievement, index) => (
               <div
                 key={index}
                 className="bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all hover:shadow-lg group"
@@ -172,6 +212,24 @@ const AchievementsSection = () => {
               </div>
             ))}
           </div>
+
+          {/* Page Indicators */}
+          {totalPages > 1 && (
+            <div className="flex justify-center gap-2 mt-8">
+              {Array.from({ length: totalPages }).map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentPage(idx)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    idx === currentPage
+                      ? 'bg-primary w-8'
+                      : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                  }`}
+                  aria-label={`Go to page ${idx + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Achievement Image Modal */}
