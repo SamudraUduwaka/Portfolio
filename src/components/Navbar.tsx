@@ -10,7 +10,7 @@ const navItems = [
   { label: "Projects", href: "#projects" },
   { label: "FYP", href: "#fyp" },
   { label: "Certifications", href: "#certifications" },
-  { label: "Extracurricular", href: "/extracurricular" },
+  { label: "Extracurricular", href: "#extracurricular" },
   { label: "Contact", href: "#contact" },
 ];
 

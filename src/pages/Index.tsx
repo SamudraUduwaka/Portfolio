@@ -6,6 +6,7 @@ import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import FypSection from "@/components/FypSection";
 import CertificationsSection from "@/components/CertificationsSection";
+import ExtracurricularSection from "@/components/ExtracurricularSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import coverImg from "@/images/samudra_coverpic.png";
@@ -38,6 +39,7 @@ const Index = () => {
           <ProjectsSection />
           <FypSection />
           <CertificationsSection />
+          <ExtracurricularSection />
           <ContactSection />
           <Footer />
         </div>
