@@ -132,7 +132,8 @@ const ExtracurricularSection = () => {
                         <img
                           src={activity.image}
                           alt={activity.organization}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform"
+                          style={{ objectPosition: 'center 40%' }}
                         />
                       </div>
                     )}
