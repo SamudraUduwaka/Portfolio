@@ -64,27 +64,25 @@ const AchievementsSection = () => {
   const [selectedAchievement, setSelectedAchievement] = useState<Achievement | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
-  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [startIndex, setStartIndex] = useState<number>(0);
 
-  const ITEMS_PER_PAGE = 3;
-  const totalPages = Math.ceil(featuredAchievements.length / ITEMS_PER_PAGE);
-  const startIndex = currentPage * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
-  const currentAchievements = featuredAchievements.slice(startIndex, endIndex);
+  const ITEMS_TO_SHOW = 3;
+  const maxStartIndex = Math.max(0, featuredAchievements.length - ITEMS_TO_SHOW);
+  const currentAchievements = featuredAchievements.slice(startIndex, startIndex + ITEMS_TO_SHOW);
 
   const handleImageLoad = (src: string) => {
     setLoadedImages(prev => new Set([...prev, src]));
   };
 
   const nextPage = () => {
-    if (currentPage < totalPages - 1) {
-      setCurrentPage(prev => prev + 1);
+    if (startIndex < maxStartIndex) {
+      setStartIndex(prev => prev + 1);
     }
   };
 
   const prevPage = () => {
-    if (currentPage > 0) {
-      setCurrentPage(prev => prev - 1);
+    if (startIndex > 0) {
+      setStartIndex(prev => prev - 1);
     }
   };
 
@@ -106,7 +104,7 @@ const AchievementsSection = () => {
         {/* Featured Achievements */}
         <div className="max-w-7xl mx-auto mb-12 relative">
           {/* Navigation Arrows */}
-          {currentPage > 0 && (
+          {startIndex > 0 && (
             <button
               onClick={prevPage}
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-primary hover:bg-primary/90 text-primary-foreground p-3 rounded-full transition-all shadow-lg"
@@ -116,7 +114,7 @@ const AchievementsSection = () => {
             </button>
           )}
           
-          {currentPage < totalPages - 1 && (
+          {startIndex < maxStartIndex && (
             <button
               onClick={nextPage}
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-primary hover:bg-primary/90 text-primary-foreground p-3 rounded-full transition-all shadow-lg"
@@ -214,18 +212,18 @@ const AchievementsSection = () => {
           </div>
 
           {/* Page Indicators */}
-          {totalPages > 1 && (
+          {featuredAchievements.length > ITEMS_TO_SHOW && (
             <div className="flex justify-center gap-2 mt-8">
-              {Array.from({ length: totalPages }).map((_, idx) => (
+              {Array.from({ length: maxStartIndex + 1 }).map((_, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setCurrentPage(idx)}
+                  onClick={() => setStartIndex(idx)}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    idx === currentPage
+                    idx === startIndex
                       ? 'bg-primary w-8'
                       : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
                   }`}
-                  aria-label={`Go to page ${idx + 1}`}
+                  aria-label={`Go to position ${idx + 1}`}
                 />
               ))}
             </div>
